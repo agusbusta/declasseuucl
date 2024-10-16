@@ -1,0 +1,45 @@
+<div class="footer">
+  <div class="f-row">
+    <div class="f-col-left">
+      DeclassEEUUCL.cl
+    </div>
+    <div class="f-col-right">
+      <div class="f-col-right-contactos">Proyecto patrocinado por</div>
+      <div class="f-col-right-email">
+        <img src="assets/img/logo_footer.png" style="width: 230px; margin-top: 10px;">
+      </div>
+    </div>
+    <div class="f-col-right">
+      <div class="f-col-right-contactos">Proyecto realizado por</div>
+      <div class="f-col-right-email">
+        <img src="assets/img/rc-team-transparente.png" style="width: 140px; margin-top: 10px; margin-bottom: 10px">
+      </div>
+    </div>
+    <div class="f-terminos">
+      <div class="f-terminos-text" (click)="isVisible = true">¿Qué es FOIA?</div>
+    </div>
+  </div>
+</div>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="" (nzOnOk)="handleOk()" [nzClosable] = "false" [nzWidth]="740">
+  <ng-container *nzModalTitle>
+    <div class="mod-title-btn">
+      <img src="assets/img/ICON-X.png" (click)="isVisible = false">
+    </div>
+    <div class="mod-title">
+      ¿Qué es FOIA?
+    </div>
+  </ng-container>
+  <ng-container *nzModalContent>
+    <p>
+      Desde 1967, la Ley de Libertad de Información (Freedom of Information Act, FOIA) garantiza a toda persona el derecho a solicitar acceso a los registros de las agencias del gobierno federal de los Estados Unidos. A su vez, las agencias federales están obligadas a entregar la información solicitada en virtud de FOIA, salvo que los registros en cuestión estén protegidos contra su divulgación por algunas de las nueve exenciones que resguardan intereses como la privacidad personal, la seguridad nacional y la aplicación de la ley.
+    </p>
+    <p>
+      Fuente: <a href="http://www.foia.gov">www.foia.gov</a>
+    </p>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div class="mod-footer-entiendo" (click)="isVisible = false">
+      Entiendo
+    </div>
+  </ng-container>
+</nz-modal>

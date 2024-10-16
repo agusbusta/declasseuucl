@@ -1,0 +1,43 @@
+<div class="content">
+  <div class="title" >DeclassEEUUCL.cl</div>
+
+  <div class="cabecera" *ngIf="isVisible">
+    <div class="filtros">
+      <div class="titulofiltro">
+        Archivos desclasificados transcritos y traducidos
+      </div>
+      <div class="sub-titulo">
+        Buscar un archivo
+      </div>
+      <div class="fila">
+        <div class="input-wrapper">
+          <input type="text" name="search" placeholder="Buscar..." [(ngModel)]="textToSearch" (keydown.enter)="buscar()">
+          <img src="assets/img/lupa1.png" alt="Buscar"  (click)="buscar()"/>
+        </div>
+        <nz-date-picker
+          [(ngModel)]="desde"
+          (ngModelChange)="buscar()"
+          nzFormat="dd-MM-yyyy"
+          id="desde"
+          [nzPlaceHolder]="desdePlaceholder"
+          [nzShowToday]="false"
+          [nzDisabledDate]="disabledDateDesde"
+        >
+        </nz-date-picker>
+        <nz-date-picker
+          [(ngModel)]="hasta"
+          (ngModelChange)="buscar()"
+          nzFormat="dd-MM-yyyy"
+          id="hasta"
+          [nzPlaceHolder]="hastaPlaceholder"
+          [nzShowToday]="false"
+          [nzDisabledDate]="disabledDateHasta"
+        >
+        </nz-date-picker>
+      </div>
+      <div class="desc">
+        Para una búsqueda efectiva, escriba un concepto específico y claro, utilizando palabras clave relevantes y luego seleccione un rango entre dos fechas para afinar la búsqueda u otro que consideren ustedes para realizar una búsqueda correcta
+      </div>
+    </div>
+  </div>
+</div>

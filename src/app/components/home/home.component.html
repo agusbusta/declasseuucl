@@ -1,0 +1,124 @@
+<div class="h-home">
+  <app-header *ngIf="!isLoading" [isVisible]="showHeader" [textToSearch]="search"
+              (searchEvent)="onSearchPerformed($event)"></app-header>
+  
+  <ng-container *ngIf="!isLoading">
+    <div class="h-content" [ngClass]="{'show-content': showHeader, 'hide-content': !showHeader}">
+      <div class="h-cabecera-financiado">
+        "Proyecto financiado por la Embajada de Estados Unidos en Chile para la transcripción, traducción y digitalización de 14.791 mil documentos desclasificados por el gobierno de los Estados Unidos relacionados con eventos históricos en Chile desde 1968 hasta el retorno a la democracia en 1991. El objetivo es poner estos documentos a disposición del público de manera permanente a través de una plataforma abierta."
+      </div>
+      <div class="h-cabecera">
+        <div class="h-archivos">
+          <div class="h-total">{{ headerTitle }}</div>
+        </div>
+        <br>
+      </div>
+      <div class="h-list">
+          <div class="h-box" (click)="getDetail(document.id);" *ngFor="let document of documents">
+            <div class="h-box-cabecera">
+              <div class="h-box-cabecera-title">{{maxSubject(document.subject)}}</div>
+              <div class="h-box-cabecera-fecha">Fecha: {{document.state}}</div>
+            </div>
+            <div class="h-box-body">
+              <img [src]="getDocumentImageUrl(document)" width="170px" height="230px">
+            </div>
+            <div class="h-box-footer">
+              <div class="visit-counter">
+                <span class="visit-icon">👁️</span>
+                <span class="visit-text">Nro de Visitas:</span>
+                <span class="visit-number">{{document.visitCounter}}</span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="h-paginator" *ngIf="!isLoading && isSearchResult && totalDocuments > pageSize">
+        <nz-pagination [nzPageIndex]="currentPage"
+                       [nzTotal]="totalDocuments"
+                       [nzPageSize]="pageSize"
+                       (nzPageIndexChange)="onPageChange($event)"
+                       [nzSimple]="isMobile"
+        ></nz-pagination>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!showHeader">
+    <div class="h-row-back" (click)="backToHome()">
+      <img src="assets/img/go_back.png">
+      <div class="h-row-back-text">Volver al buscador</div>
+    </div>
+    <div class="h-desc-archivo">
+      <div class="h-desc-archivo-izq">
+        <div class="h-desc-archivo-izq-asunto">{{detailDocument.id}}</div>
+        <div class="h-desc-archivo-izq-asunto-text">{{detailDocument.subject}}</div>
+        <div class="h-desc-archivo-izq-asunto-fecha">Fecha: {{detailDocument.state}}</div>
+        <div class="h-desc-archivo-izq-asunto-de-para">Desde: {{detailDocument.fromAddress}}    Para:{{detailDocument.toAddress}}</div>
+        <div class="h-share">
+          <button class="share-button" (click)="copyToClipboardUrl()">
+            <i-lucide name="copy"></i-lucide>
+            <span>Copiar URL</span>
+          </button>
+          <button class="share-button" (click)="shareOnWhatsApp()">
+            <i-lucide name="share"></i-lucide>
+            <span>WhatsApp</span>
+          </button>
+        </div>
+      </div>
+      <!--div class="h-desc-archivo-der">
+        <img src="assets/img/avisar.png">
+        Avisar un problema en el documento
+      </div-->
+    </div>
+    <div class="h-desc-archivo-separator"></div>
+    <div class="ia-text">
+      El proceso de transcripción y traducción ha sido realizado con herramientas de IA, por lo que cualquier error o anomalía en los textos es consecuencia de la calidad de los archivos de origen.
+    </div>
+    <div class="h-archivo">
+      <div class="h-archivo-col ">
+        <div class="h-archivo-col-title">Documento original</div>
+        <div class="h-archivo-col-recuadro gray">
+          <img [src]="getDocumentImageUrl(detailDocument)" id="img_captura">
+        </div>
+        <div class="h-archivo-col-boton-contendor">
+          <div class="h-archivo-col-boton-blanco" style="cursor: pointer" (click)="descargaOriginal(detailDocument)">
+            <img src="assets/img/pdf_azul.png" >
+            Descargar documento original
+          </div>
+        </div>
+      </div>
+      <div class="h-archivo-col">
+        <div class="h-archivo-col-title">Documento transcrito</div>
+        <div class="h-archivo-col-recuadro">
+          <div class="h-archivo-col-copiar">
+            <img src="assets/img/copiar.png" style="cursor: pointer" (click)="copyToClipboard(detailDocument.content)">
+          </div>
+          <div class="h-archivo-col-text" [innerHTML]="detailDocument.contentFormated"></div>
+        </div>
+        <div class="h-archivo-col-boton-contendor">
+          <div class="h-archivo-col-boton-azul" (click)="descargaTranscripcion(detailDocument)">
+            <img src="assets/img/pdf_blanco.png" >
+            Descargar documento transcrito
+          </div>
+        </div>
+        <div style="height: 21px"></div>
+        <div class="h-archivo-col-title">Documento Traducido</div>
+        <div class="h-archivo-col-recuadro">
+          <div class="h-archivo-col-copiar">
+            <img src="assets/img/copiar.png" style="cursor: pointer;" (click)="copyToClipboard(detailDocument.content)">
+          </div>
+          <div class="h-archivo-col-text" [innerHTML]="detailDocument.traductionFormated"></div>
+        </div>
+        <div class="h-archivo-col-boton-contendor">
+          <div class="h-archivo-col-boton-azul" (click)="descargaTraduccion(detailDocument)">
+            <img src="assets/img/pdf_blanco.png">
+            Descargar documento traducido
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- Capa de fondo con transparencia -->
+  <div class="overlay" [class.hidden]="!isLoading"></div>
+  <nz-spin [nzSize]="'large'" [nzSpinning]="isLoading" [nzTip]="'Cargando...'"></nz-spin>
+</div>
+
+<app-footer></app-footer>

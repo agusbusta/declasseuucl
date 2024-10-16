@@ -1,0 +1,190 @@
+.footer {
+  height: 225px;
+  width: 100%;
+  background: #020618;
+  padding-top: 45px;
+  padding-left: 53px;
+
+  @media (max-width: 768px) {
+    padding-top: 20px; // Reducido para menos espacio vertical
+    padding-left: 20px; // Reducido para menos espacio horizontal
+    height: auto; // Hacer la altura auto para ajustar el contenido sin cortarlo
+  }
+
+  .f-row {
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding-left: 10px; // Reduce el padding para pantallas pequeñas
+      padding-right: 10px;
+    }
+
+    .f-col-left, .f-col-right, .f-terminos {
+      width: 100%; // En pantallas pequeñas, cada columna toma el 100% del ancho
+
+      @media (max-width: 768px) {
+        text-align: center; // Centra el contenido en pantallas pequeñas
+      }
+    }
+
+    .f-col-left {
+      font-family: 'Roboto Condensed', serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 28px;
+      color: #FFFFFF;
+
+      @media (max-width: 768px) {
+        font-size: 24px; // Reduce el tamaño de la fuente para pantallas pequeñas
+      }
+    }
+
+    .f-col-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        margin-right: 5px;
+      }
+
+      .f-col-right-contactos, .f-col-right-email {
+        font-family: 'Roboto Condensed', serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: #FFFFFF;
+
+        @media (max-width: 768px) {
+          font-size: 18px; // Reduce el tamaño de la fuente para pantallas pequeñas
+        }
+      }
+    }
+  }
+
+  .f-terminos {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 100%; // Ocupa todo el ancho disponible en pantallas pequeñas
+      padding-top: 20px; // Agrega un poco de espacio arriba
+    }
+
+    .f-terminos-text {
+      font-family: 'Roboto Condensed', serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 28px;
+      text-decoration-line: underline;
+      color: #FFFFFF;
+      cursor: pointer;
+
+      @media (max-width: 768px) {
+        font-size: 16px; // Reduce aún más el tamaño de la fuente
+      }
+    }
+  }
+}
+
+
+.mod-footer-entiendo {
+  background: #003875;
+  border-radius: 9px;
+  width: 212px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-family: 'Roboto Condensed', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.ant-modal-content {
+  position: relative;
+  background-clip: padding-box;
+  border: 0;
+  pointer-events: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.ant-modal-footer {
+  padding: 24px 16px;
+  text-align: center;
+  background: transparent;
+  border-radius: 0 0 2px 2px;
+  border-top: 0px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ant-modal-header {
+  padding: 16px 24px;
+  color: rgba(0, 0, 0, 0.85);
+  background: #fff;
+  border-bottom: 0px solid #f0f0f0;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: column;
+
+  .mod-title-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mod-title {
+    font-family: 'Roboto Condensed', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height, or 117% */
+    text-align: center;
+    color: #1C1B1B;
+  }
+}
+
+.ant-modal-body {
+  padding: 20px 100px; // Padding original para pantallas grandes
+  font-size: 14px;
+  line-height: 1.5715;
+  word-wrap: break-word;
+
+  @media (max-width: 768px) {
+    padding: 10px 20px; // Reducción del padding para pantallas pequeñas
+    font-size: 12px; // Ligeramente más pequeño para adaptarse a la escala
+    line-height: 1.4; // Ajuste de la altura de línea para mejorar la legibilidad
+  }
+
+  p {
+    font-family: 'Roboto Condensed', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px; // Tamaño original para pantallas grandes
+    line-height: 24px;
+    color: #333333;
+    width: 550px; // Ancho fijo que puede ser demasiado grande para pantallas pequeñas
+
+    @media (max-width: 768px) {
+      font-size: 16px; // Reducción del tamaño de la fuente para mejorar la legibilidad en pantallas pequeñas
+      line-height: 20px; // Ajuste proporcional de la altura de línea
+      width: 100%; // Hacer que el ancho sea fluido para adaptarse a cualquier tamaño de pantalla
+    }
+  }
+}
