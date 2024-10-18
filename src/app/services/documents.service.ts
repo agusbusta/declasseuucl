@@ -9,12 +9,10 @@ const httpOptions = {
     }
   )
 };
-
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentsService {
-  private basePath = 'https://3.18.245.109:8080'; // Change to HTTPS
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +26,7 @@ export class DocumentsService {
   
 
   getDetail(idDocumento: number): Observable<object> {
-    let url = `/api/documents/detail/${idDocumento}`; // Usa la ruta relativa
+    let url = `http://3.18.245.109:8080/api/documents/detail/${idDocumento}`
     return this.http.get(url, httpOptions);
   }
 }
