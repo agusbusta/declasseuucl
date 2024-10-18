@@ -385,3 +385,20 @@ month-table .ant-picker-content {
 }
 
 
+
+
+.clear-search {
+  margin-left: 3%; 
+  font-weight: 900;/* Espacio entre el input y el ícono */
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+}
+
+.icon-trash {
+  color: white;
+  margin-left: 5px;
+  font-size: 30px;
+  /* Asegúrate de que el ícono tenga el estilo adecuado */
+}
