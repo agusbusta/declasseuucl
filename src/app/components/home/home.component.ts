@@ -80,9 +80,9 @@ export class HomeComponent implements OnInit {
     }
 
     this.route.queryParams.subscribe(params => {
-        this.currentPage = 1; // Siempre comenzamos en la primera página
+        this.currentPage = +params['currentPage'] || 1; // Siempre comenzamos en la primera página
         this.search = params['keyword'] || "";
-        this.pageSize = 10; // Aseguramos que siempre sean 10 documentos
+        this.pageSize = +params['size'] || 10; // Aseguramos que siempre sean 10 documentos
 
         this.from = params['from'] || this.from;
         this.to = params['to'] || this.to;
@@ -90,12 +90,12 @@ export class HomeComponent implements OnInit {
         this.documentId = params['documentId'];
 
         // Verificar si hay parámetros de búsqueda
-        if (!params['keyword'] && !params['from'] && !params['to']) {
-            this.isSearchResult = false; // No hay resultados de búsqueda
-            this.headerTitle = 'Archivos más visitados'; // Título correcto
-        } else {
+        if (this.search) {
             this.isSearchResult = true; // Hay resultados de búsqueda
             this.headerTitle = 'Resultados de la búsqueda'; // Título de búsqueda
+        } else {
+            this.isSearchResult = false; // No hay resultados de búsqueda
+            this.headerTitle = 'Archivos más visitados'; // Título correcto
         }
 
         // Obtener los documentos de la primera página
@@ -314,15 +314,15 @@ export class HomeComponent implements OnInit {
   backToHome() {
     // Restablecer el estado del componente
     this.showHeader = true;
-    this.isSearchResult = true; // Asegúrate de que esto esté en true para mantener la búsqueda
-    // No restablecer el título, ya que queremos mantener la búsqueda
-    // this.headerTitle = 'Archivos más visitados'; // Restablecer el título
 
-    // No restablecer los parámetros de búsqueda
-    // this.currentPage = 1; // Volver a la primera página (opcional)
-    // this.search = ""; // Limpiar la búsqueda (no lo hacemos)
-    // this.from = "01-01-1968"; // Restablecer la fecha de inicio (no lo hacemos)
-    // this.to = "31-12-1991"; // Restablecer la fecha de fin (no lo hacemos)
+    // Verificar si hay una búsqueda previa
+    if (this.search) {
+        this.isSearchResult = true; // Mantener el estado de búsqueda
+        this.headerTitle = 'Resultados de la búsqueda'; // Título de búsqueda
+    } else {
+        this.isSearchResult = false; // No hay resultados de búsqueda
+        this.headerTitle = 'Archivos más visitados'; // Título por defecto
+    }
 
     // Navegar a la página de inicio
     this.router.navigate([''], { queryParams: { currentPage: this.currentPage, size: this.pageSize, keyword: this.search, from: this.from, to: this.to } });

@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="title" >DeclassEEUUCL.cl</div>
+  <div class="title" (click)="navigateToHome()" style="cursor: pointer;">DeclassEEUUCL.cl</div>
 
   <div class="cabecera" *ngIf="isVisible">
     <div class="filtros">
@@ -12,7 +12,7 @@
       <div class="fila">
         <div class="input-wrapper">
           <input type="text" name="search" placeholder="Buscar..." [(ngModel)]="textToSearch" (keydown.enter)="buscar()">
-          <img src="assets/img/lupa1.png" alt="Buscar"  (click)="buscar()"/>
+          <img src="assets/img/lupa1.png" alt="Buscar" (click)="buscar()"/>
         </div>
         <nz-date-picker
           [(ngModel)]="desde"

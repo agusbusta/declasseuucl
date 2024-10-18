@@ -2,6 +2,7 @@ import {NzDateMode, NzDatePickerComponent} from "ng-zorro-antd/date-picker";
 import {FormsModule} from "@angular/forms";
 import {NgClass, NgIf} from "@angular/common";
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +11,11 @@ import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angula
     NzDatePickerComponent,
     FormsModule,
     NgIf,
-    NgClass
+    NgClass,
+    RouterModule
   ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  templateUrl: './header.component.html', // Verifica que esta ruta sea correcta
+  styleUrls: ['./header.component.scss'], // Verifica que esta ruta sea correcta
   encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
@@ -48,6 +50,12 @@ export class HeaderComponent {
       textToSearch: this.textToSearch
     };
     this.searchEvent.emit(searchData);
+  }
+
+  constructor(private router: Router) { }
+
+  navigateToHome() {
+    this.router.navigate(['/']); // Asegúrate de que esta ruta sea correcta
   }
 
 }
