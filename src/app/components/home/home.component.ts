@@ -172,7 +172,7 @@ export class HomeComponent implements OnInit {
   }
 
   getDocumentImageUrl(document: Document) {
-    return this.basePath.replace('http://', 'https://') + '/api/image/' + document.id;
+    return this.basePath + '/api/image/' + document.id;
   }
 
   onPageChange(pageIndex: number): void {
