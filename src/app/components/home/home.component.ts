@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   detailDocument: any;
   documentId = undefined;
 
-  basePath = 'http://3.18.245.109:8080';
+  basePath = 'https://declasseuucl.vercel.app';
 
   currentPage: number=1;
   search: any = "";

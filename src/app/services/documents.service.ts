@@ -21,12 +21,12 @@ export class DocumentsService {
   }
   
   incrementVisitCounter(id: number): Observable<void> {
-    return this.http.post<void>(`http://3.18.245.109:8080/documents/${id}/increment-visit`, {}, httpOptions);
+    return this.http.post<void>(`https://declasseuucl.vercel.app/documents/${id}/increment-visit`, {}, httpOptions);
   }
   
 
   getDetail(idDocumento: number): Observable<object> {
-    let url = `http://3.18.245.109:8080/api/documents/detail/${idDocumento}`
+    let url = `https://declasseuucl.vercel.app/api/documents/detail/${idDocumento}`
     return this.http.get(url, httpOptions);
   }
 }
