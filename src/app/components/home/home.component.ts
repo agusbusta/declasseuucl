@@ -314,17 +314,18 @@ export class HomeComponent implements OnInit {
   backToHome() {
     // Restablecer el estado del componente
     this.showHeader = true;
-    this.isSearchResult = false; // Asegúrate de que esto esté en false
-    this.headerTitle = 'Archivos más visitados'; // Restablecer el título
+    this.isSearchResult = true; // Asegúrate de que esto esté en true para mantener la búsqueda
+    // No restablecer el título, ya que queremos mantener la búsqueda
+    // this.headerTitle = 'Archivos más visitados'; // Restablecer el título
 
-    // Restablecer los parámetros de búsqueda
-    this.currentPage = 1; // Volver a la primera página
-    this.search = ""; // Limpiar la búsqueda
-    this.from = "01-01-1968"; // Restablecer la fecha de inicio
-    this.to = "31-12-1991"; // Restablecer la fecha de fin
+    // No restablecer los parámetros de búsqueda
+    // this.currentPage = 1; // Volver a la primera página (opcional)
+    // this.search = ""; // Limpiar la búsqueda (no lo hacemos)
+    // this.from = "01-01-1968"; // Restablecer la fecha de inicio (no lo hacemos)
+    // this.to = "31-12-1991"; // Restablecer la fecha de fin (no lo hacemos)
 
     // Navegar a la página de inicio
-    this.router.navigate([''], { queryParams: { currentPage: this.currentPage, size: this.pageSize } });
+    this.router.navigate([''], { queryParams: { currentPage: this.currentPage, size: this.pageSize, keyword: this.search, from: this.from, to: this.to } });
   }
 
   shareOnWhatsApp() {
