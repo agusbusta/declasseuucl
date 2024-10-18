@@ -28,7 +28,7 @@ export class DocumentsService {
   
 
   getDetail(idDocumento: number): Observable<object> {
-    let url = `${this.basePath}/api/documents/detail/${idDocumento}`;
+    let url = `/api/documents/detail/${idDocumento}`; // Usa la ruta relativa
     return this.http.get(url, httpOptions);
   }
 }
