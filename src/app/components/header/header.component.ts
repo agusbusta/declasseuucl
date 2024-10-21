@@ -55,7 +55,16 @@ export class HeaderComponent {
   constructor(private router: Router) { }
 
   navigateToHome() {
-    this.router.navigate(['/']); // Asegúrate de que esta ruta sea correcta
+    this.router.navigate(['/']);
+    this.clearSearch();
+  }
+
+  clearSearch() {
+    this.textToSearch = "";
+    this.desde = new Date(1968, 0, 1);
+    this.hasta = new Date(1991, 11, 31);
+    // Emitir el evento de búsqueda con los valores limpiados
+    this.buscar();
   }
 
 }
