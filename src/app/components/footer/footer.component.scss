@@ -2,7 +2,7 @@
   height: 225px;
   width: 100%;
   background: #020618;
-  padding-top: 45px;
+
   padding-left: 53px;
 
   @media (max-width: 768px) {
@@ -22,6 +22,7 @@
     }
 
     .f-col-left, .f-col-right, .f-terminos {
+      margin-top: 20px;
       width: 100%; // En pantallas pequeñas, cada columna toma el 100% del ancho
 
       @media (max-width: 768px) {
