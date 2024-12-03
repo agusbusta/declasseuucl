@@ -15,6 +15,7 @@ import { isPlatformBrowser } from '@angular/common';
 import {LucideIconsModule} from "../../shared/lucide-icons.module";
 import { ViewportScroller } from '@angular/common';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -55,6 +56,7 @@ export class HomeComponent implements OnInit {
   isSearchResult: boolean = false;
   headerTitle: string = 'Archivos más visitados'; // Título por defecto
   originalHeaderTitle: string = this.headerTitle; // Título original
+  noDocuments: boolean = false; // Nueva propiedad para rastrear si no hay documentos
 
   constructor(private documentsService : DocumentsService,
               private clipboard: Clipboard,
@@ -106,6 +108,9 @@ export class HomeComponent implements OnInit {
                 this.documents = response.content;
                 // @ts-ignore
                 this.totalDocuments = response.totalElements;
+
+                // Verificar si hay documentos
+                this.noDocuments = this.documents.length === 0; // Si no hay documentos, establecer noDocuments en true
 
                 if (this.documentId) {
                     this.loadDocumentDetail(this.documentId);
@@ -262,6 +267,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSearchPerformed(searchData: { desde: any, hasta: any, textToSearch: any }) {
+    this.isLoading = true; // Iniciar el estado de carga
     this.search = searchData.textToSearch;
     var agno = searchData.desde.getFullYear();
     var mes = ('0' + (searchData.desde.getMonth() + 1)).slice(-2); // Se agrega 1 porque los meses se indexan desde 0
@@ -273,9 +279,6 @@ export class HomeComponent implements OnInit {
     var diaTo = ('0' + searchData.hasta.getDate()).slice(-2);
     this.to = diaTo + '-' + mesTo + '-' + agnoTo;
 
-
-
-
     this.isSearchResult = true;
     this.headerTitle = 'Resultados de la búsqueda';
 
@@ -285,11 +288,12 @@ export class HomeComponent implements OnInit {
       keyword: this.search,
       to: this.to,
       from: this.from
-    }
-    this.router.navigate(
-      [''],
-      { queryParams: filter }
-    );
+    };
+
+    // Asegúrate de que el loader se muestre antes de navegar
+    this.router.navigate([''], { queryParams: filter }).then(() => {
+      this.isLoading = false; // Finalizar el estado de carga después de la navegación
+    });
   }
 
   descargaTraduccion(detailDocument: any) {

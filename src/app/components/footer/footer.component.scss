@@ -1,7 +1,7 @@
 .footer {
-  height: 225px;
+  height: auto;
   width: 100%;
-  background: #020618;
+  background: #d3ebf2;
 
   padding-left: 53px;
 
@@ -14,6 +14,7 @@
   .f-row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -23,10 +24,11 @@
 
     .f-col-left, .f-col-right, .f-terminos {
       margin-top: 20px;
-      width: 100%; // En pantallas pequeñas, cada columna toma el 100% del ancho
+      width: 20%;
 
       @media (max-width: 768px) {
-        text-align: center; // Centra el contenido en pantallas pequeñas
+        width: 100%;
+        text-align: center;
       }
     }
 
@@ -49,23 +51,70 @@
       align-items: center;
       margin-top: 24px;
 
-      img {
-        margin-right: 5px;
+      .f-col-right-contactos {
+        font-family: 'Roboto Condensed', serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: #15304e;
+        margin-bottom: 5px;
       }
 
-      .f-col-right-contactos, .f-col-right-email {
-        font-family: 'Roboto Condensed', serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
-        color: #FFFFFF;
+      .f-social-container {
+        width: 114px;
+        height: 37px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
 
-        @media (max-width: 768px) {
-          font-size: 18px; // Reduce el tamaño de la fuente para pantallas pequeñas
+      .f-social-icons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        
+        .social-icon {
+          cursor: pointer;
         }
+
+        .facebook {
+          width: 21px;
+          height: 37px;
+        }
+
+        .x {
+          width: 31px;
+          height: 33px;
+        }
+
+        .instagram {
+          width: 35px;
+          height: 35px;
+        }
+
+      }
+
+      .social-icon-embajada {
+        width: 140px;
+        margin-top: 10px;
+        cursor: pointer;
       }
     }
+  }    
+     
+  .facebook {
+    width: 21px; /* Ancho del logo de Facebook */
+    height: 37px; /* Alto del logo de Facebook */
+  }
+
+  .x {
+    width: 31px; /* Ancho del logo de X */
+    height: 33px; /* Alto del logo de X */
+  }
+
+  .instagram {
+    width: 35px; /* Ancho del logo de Instagram */
+    height: 35px; /* Alto del logo de Instagram */
   }
 
   .f-terminos {
@@ -82,11 +131,11 @@
     .f-terminos-text {
       font-family: 'Roboto Condensed', serif;
       font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
+          font-weight: 500;
+        font-size: 24px;
       line-height: 28px;
       text-decoration-line: underline;
-      color: #FFFFFF;
+      color: #15304e;
       cursor: pointer;
 
       @media (max-width: 768px) {
@@ -190,4 +239,11 @@
       width: 100%; // Hacer que el ancho sea fluido para adaptarse a cualquier tamaño de pantalla
     }
   }
+}
+
+
+.social-icon-embajada {
+  width: 140px; /* Ajusta el tamaño del logo de la embajada */
+  margin-top: 10px;
+  cursor: pointer; /* Espacio superior para separar de los íconos */
 }

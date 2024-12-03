@@ -1,7 +1,5 @@
-
-
 .content {
-  background-image: url("../../../assets/img/fondo_1_c.png");
+  background-color: #d3ebf2;
   background-size: 100% 500px; /* Estira al ancho y ajusta el alto automáticamente */
   background-repeat: no-repeat; /* Asegúrate de que la imagen no se repita */
   margin: 0 !important;
@@ -57,7 +55,7 @@
       width: 98%;
       height: 280px;
 
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(27, 56, 101, 0.75);
       border: 1px solid #2F2D2D;
       box-shadow: 0 4px 7px rgba(20, 55, 113, 0.3);
       border-radius: 9px;
@@ -387,13 +385,24 @@ month-table .ant-picker-content {
 
 
 
-.clear-search {
-  margin-left: 3%; 
-  font-weight: 900;/* Espacio entre el input y el ícono */
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 12px;
+.header-actions {
+  display: flex; /* Utiliza Flexbox para alinear los elementos */
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center; /* Alinea verticalmente los elementos */
+  padding: 0 20px; /* Espaciado horizontal opcional */
+
+  .clear-search {
+    margin-left: 1%; /* Empuja el elemento a la izquierda */
+    font-weight: 900;
+    color: white;
+    font-size: 12px
+  }
+
+  .open-guide {
+    margin-right: 53%; /* Espacio de 200px desde el lado izquierdo */
+    color: white;
+    font-size: 12px;
+  }
 }
 
 .icon-trash {

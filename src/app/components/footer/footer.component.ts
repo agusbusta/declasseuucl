@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, Renderer2} from '@angular/core';
 import {
   NzModalComponent,
   NzModalContentDirective,
@@ -22,9 +22,22 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class FooterComponent {
-  isVisible = false;
+  isVisibleFOIA = false;
+  isVisibleGuia = false;
+
+  constructor(private renderer: Renderer2) {}
 
   handleOk() {
-    this.isVisible = false;
+    this.isVisibleFOIA = false;
+    this.isVisibleGuia = false;
+  }
+
+  openLink(url: string) {
+    const a = this.renderer.createElement('a');
+    a.href = url;
+    a.target = '_blank'; // Abre en una nueva pestaña
+    this.renderer.appendChild(document.body, a);
+    a.click();
+    this.renderer.removeChild(document.body, a);
   }
 }

@@ -3,6 +3,9 @@ import {FormsModule} from "@angular/forms";
 import {NgClass, NgIf} from "@angular/common";
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {Router, RouterModule} from '@angular/router';
+import { NzModalComponent, NzModalService } from "ng-zorro-antd/modal";
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +15,12 @@ import {Router, RouterModule} from '@angular/router';
     FormsModule,
     NgIf,
     NgClass,
-    RouterModule
+    RouterModule,
+    NzModalComponent
   ],
   templateUrl: './header.component.html', // Verifica que esta ruta sea correcta
   styleUrls: ['./header.component.scss'], // Verifica que esta ruta sea correcta
+  providers: [NzModalService],
   encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
@@ -34,6 +39,7 @@ export class HeaderComponent {
   desdePlaceholder: string | string[] = 'Desde';
   hastaPlaceholder: string | string[] = 'Hasta';
 
+  isVisibleGuia = false;
 
   disabledDateDesde = (current: Date): boolean => {
     return current < this.minDate || current > this.maxDate || current > this.hasta;
@@ -52,7 +58,7 @@ export class HeaderComponent {
     this.searchEvent.emit(searchData);
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private modal: NzModalService) { }
 
   navigateToHome() {
     this.router.navigate(['/']);
@@ -67,4 +73,24 @@ export class HeaderComponent {
     this.buscar();
   }
 
+  openGuiaModal() {
+    const modal = this.modal.create({
+      nzTitle: 'Guía de Uso',
+      nzContent: 'Aquí puedes agregar el contenido de la guía de uso.', // Puedes reemplazar esto con un componente o contenido más complejo
+      nzFooter: [
+        {
+          label: 'Entendido',
+          onClick: () => {
+            this.handleGuiaOk(); // Llama a handleGuiaOk al hacer clic en "Aceptar"
+            modal.destroy(); // Cierra el modal manualmente
+          }
+        }
+      ],
+    });
+  }
+
+  handleGuiaOk() {
+    console.log('Guía de uso aceptada'); // Mensaje de confirmación en la consola
+  }
 }
+

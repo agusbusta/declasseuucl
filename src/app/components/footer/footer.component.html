@@ -1,29 +1,44 @@
 <div class="footer">
   <div class="f-row">
     <div class="f-col-left">
-      DeclassEEUUCL.cl
+      <img src="assets/web/declasslogo.png" style="width: 160px; margin-top: -5%; margin-bottom: 10px">
     </div>
     <div class="f-col-right">
       <div class="f-col-right-contactos">Proyecto patrocinado por</div>
       <div class="f-col-right-email">
-        <img src="assets/img/logo_footer.png" style="width: 230px; margin-top: 10px;">
+        <a href="https://cl.usembassy.gov/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/web/emlogo.png" style="width: 230px; margin-top: 10px;">
+        </a>
       </div>
     </div>
     <div class="f-col-right">
       <div class="f-col-right-contactos">Proyecto realizado por</div>
       <div class="f-col-right-email">
-        <img src="assets/img/rc-team-transparente.png" style="width: 140px; margin-top: 10px; margin-bottom: 10px">
+        <img src="assets/web/rclogo.png" style="width: 140px; margin-bottom: 10px">
       </div>
     </div>
+      <div class="f-col-right">
+        <div class="f-col-right-contactos">Encuéntranos en:</div>
+        <div class="f-social-container">
+          <div class="f-social-icons">
+            <img src="assets/web/facebook.png" alt="Facebook" class="social-icon facebook" (click)="openLink('https://www.facebook.com/EmbajadaEEUUCl/')">
+            <img src="assets/web/x.png" alt="X" class="social-icon x" (click)="openLink('https://x.com/EmbajadaEEUUcl')">
+            <img src="assets/web/insta.png" alt="Instagram" class="social-icon instagram" (click)="openLink('https://www.instagram.com/embajadaeeuucl/')">
+          </div>
+        </div>
+        <img src="assets/web/embajadaeeuu.png" alt="embajada" class="social-icon-embajada" (click)="openLink('https://cl.usembassy.gov/')" style="margin-top: 10px;">
+      </div>
+
     <div class="f-terminos">
-      <div class="f-terminos-text" (click)="isVisible = true">¿Qué es FOIA?</div>
+      <div class="f-terminos-text" (click)="isVisibleFOIA = true">¿Qué es FOIA?</div>
+      <div class="f-terminos-text" (click)="isVisibleGuia = true">Guía de Uso</div>
     </div>
   </div>
 </div>
-<nz-modal [(nzVisible)]="isVisible" nzTitle="" (nzOnOk)="handleOk()" [nzClosable] = "false" [nzWidth]="740">
+<nz-modal [(nzVisible)]="isVisibleFOIA" nzTitle="" (nzOnOk)="handleOk()" [nzClosable]="false" [nzWidth]="740">
   <ng-container *nzModalTitle>
     <div class="mod-title-btn">
-      <img src="assets/img/ICON-X.png" (click)="isVisible = false">
+      <img src="assets/img/ICON-X.png" (click)="isVisibleFOIA = false">
     </div>
     <div class="mod-title">
       ¿Qué es FOIA?
@@ -38,7 +53,31 @@
     </p>
   </ng-container>
   <ng-container *nzModalFooter>
-    <div class="mod-footer-entiendo" (click)="isVisible = false">
+    <div class="mod-footer-entiendo" (click)="isVisibleFOIA = false">
+      Entiendo
+    </div>
+  </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisibleGuia" nzTitle="" (nzOnOk)="handleOk()" [nzClosable]="false" [nzWidth]="740">
+  <ng-container *nzModalTitle>
+    <div class="mod-title-btn">
+      <img src="assets/img/ICON-X.png" (click)="isVisibleGuia = false">
+    </div>
+    <div class="mod-title">
+      Guía de Uso
+    </div>
+  </ng-container>
+  <ng-container *nzModalContent>
+    <p>
+      Aquí puedes incluir la información relevante sobre cómo utilizar la plataforma, incluyendo pasos, consejos y cualquier otra información útil para los usuarios.
+    </p>
+    <p>
+      Asegúrate de proporcionar ejemplos claros y concisos para facilitar la comprensión.
+    </p>
+  </ng-container>
+  <ng-container *nzModalFooter>
+    <div class="mod-footer-entiendo" (click)="isVisibleGuia = false">
       Entiendo
     </div>
   </ng-container>

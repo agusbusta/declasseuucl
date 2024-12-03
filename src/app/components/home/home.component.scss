@@ -503,3 +503,26 @@ nz-spin {
   font-weight: 700;
   color: #007bff;
 }
+
+.no-documents-message {
+  text-align: center;
+  margin: 20px;
+  height: 200px;
+
+  @media (max-width: 768px) {
+    margin: 10px; // Reduce el margen en pantallas pequeñas
+    height: auto; // Permite que la altura se ajuste automáticamente
+  }
+}
+
+.no-documents-message h2 {
+  font-size: 24px;
+  color: #ff0000; 
+  margin-top: 100px;
+  // Color rojo para destacar el mensaje
+
+  @media (max-width: 768px) {
+    margin-top: 100px;
+    font-size: 20px; // Reduce el tamaño de la fuente en pantallas pequeñas
+  }
+}
