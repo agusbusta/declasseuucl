@@ -436,3 +436,20 @@ month-table .ant-picker-content {
   color: #555; /* Color del texto */
   margin-bottom: 10px; /* Espaciado entre elementos de la lista */
 }
+
+
+.headerdesk {
+  display: block;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.headermobile {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  } 
+}
+
+
