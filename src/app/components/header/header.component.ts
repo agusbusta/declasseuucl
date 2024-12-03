@@ -76,7 +76,17 @@ export class HeaderComponent {
   openGuiaModal() {
     const modal = this.modal.create({
       nzTitle: 'Guía de Uso',
-      nzContent: 'Aquí puedes agregar el contenido de la guía de uso.', // Puedes reemplazar esto con un componente o contenido más complejo
+      nzContent: `
+        <div class="modal-content">
+          <h3 class="modal-title">Datos para una búsqueda correcta:</h3>
+          <ul class="modal-list">
+            <li>Frases compuestas (frases exactas), por ejemplo: <strong>Golpe de estado</strong></li>
+            <li>Términos en mayúsculas y minúsculas, por ejemplo: <strong>Gobierno, gobierno</strong></li>
+            <li>Términos con conectores, por ejemplo: <strong>la administración de...</strong></li>
+            <li>Términos con acentuación correcta y sin acentuación.</li>
+          </ul>
+        </div>
+      `,
       nzFooter: [
         {
           label: 'Entendido',

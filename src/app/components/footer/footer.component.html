@@ -69,12 +69,15 @@
     </div>
   </ng-container>
   <ng-container *nzModalContent>
-    <p>
-      Aquí puedes incluir la información relevante sobre cómo utilizar la plataforma, incluyendo pasos, consejos y cualquier otra información útil para los usuarios.
-    </p>
-    <p>
-      Asegúrate de proporcionar ejemplos claros y concisos para facilitar la comprensión.
-    </p>
+    <div class="modal-content">
+      <h3 class="modal-title">Datos para una búsqueda correcta:</h3>
+      <ul class="modal-list">
+        <li>Frases compuestas (frases exactas), por ejemplo: <strong>Golpe de estado</strong></li>
+        <li>Términos en mayúsculas y minúsculas, por ejemplo: <strong>Gobierno, gobierno</strong></li>
+        <li>Términos con conectores, por ejemplo: <strong>la administración de...</strong></li>
+        <li>Términos con acentuación correcta y sin acentuación.</li>
+      </ul>
+    </div>
   </ng-container>
   <ng-container *nzModalFooter>
     <div class="mod-footer-entiendo" (click)="isVisibleGuia = false">

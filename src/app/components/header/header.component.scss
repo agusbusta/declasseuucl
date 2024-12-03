@@ -392,7 +392,7 @@ month-table .ant-picker-content {
   padding: 0 20px; /* Espaciado horizontal opcional */
 
   .clear-search {
-    margin-left: 1%; /* Empuja el elemento a la izquierda */
+    margin-left: 10%; /* Empuja el elemento a la izquierda */
     font-weight: 900;
     color: white;
     font-size: 12px
@@ -410,4 +410,29 @@ month-table .ant-picker-content {
   margin-left: 5px;
   font-size: 30px;
   /* Asegúrate de que el ícono tenga el estilo adecuado */
+}
+
+.modal-content {
+  padding: 20px; /* Espaciado interno */
+  background-color: #f9f9f9; /* Color de fondo suave */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.modal-title {
+  font-family: 'Roboto', sans-serif; /* Fuente */
+  font-size: 20px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.modal-list {
+  list-style-type: disc; /* Estilo de lista */
+  padding-left: 20px; /* Espaciado a la izquierda */
+}
+
+.modal-list li {
+  font-family: 'Roboto', sans-serif; /* Fuente */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #555; /* Color del texto */
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
 }
