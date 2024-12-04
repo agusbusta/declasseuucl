@@ -456,35 +456,41 @@ month-table .ant-picker-content {
   width: 80px;
   height: 70px;
   position: absolute;
-  top: 10px;
+  top: 0.6%;
   right: 9.4%;
+  @media (max-width: 1650px) {
+    width: 5%;
+    height: 45px;
+    top: 1.75%;
+    right: 9.5%;
+  }
   @media (max-width: 768px) {
     width: 13%;
-  height: 40px;
-  position: absolute;
-  top: 34px;
-  right: 27%;
-
+    height: 40px;
+    top: 0.75%;
+    right: 27%;
   }
 }
-
 
 .emblogo {
   width: 140px;
   height: 40px;
   position: absolute;
-  top: 25px;
+  top: 1.5%;
   right: 0.5%;
+  @media (max-width: 1650px) {
+    width: 8%;
+    height: 35px;
+    top: 2%;
+    right: 1%;
+  }
   @media (max-width: 768px) {
     width: 24%;
-  height: 35px;
-  position: absolute;
-  top: 36px;
-  right: 1%;
-
+    height: 35px;
+    top: 0.8%;
+    right: 1%;
   }
 }
-
 
 .declogo {
   width: 130px;
@@ -492,12 +498,11 @@ month-table .ant-picker-content {
   position: absolute;
   top: 30px;
   left: 3%;
+  
   @media (max-width: 768px) {
     width: 24%;
-  height: 20px;
-  position: absolute;
-  top: 40px;
-  left: 4%;
-
+    height: 20px;
+    top: 40px;
+    left: 4%;
   }
 }
