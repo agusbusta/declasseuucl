@@ -395,13 +395,23 @@ month-table .ant-picker-content {
     margin-left: 10%; /* Empuja el elemento a la izquierda */
     font-weight: 900;
     color: white;
-    font-size: 12px
+    font-size: 12px;
   }
 
   .open-guide {
     margin-right: 57%; /* Espacio de 200px desde el lado izquierdo */
     color: white;
     font-size: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .clear-search, .open-guide {
+      color: red !important;
+      
+      i {
+        color: red !important;
+      }
+    }
   }
 }
 
@@ -504,5 +514,17 @@ month-table .ant-picker-content {
     height: 20px;
     top: 40px;
     left: 4%;
+  }
+}
+
+.filtros {
+  @media (max-width: 768px) {
+    .open-guide {
+      margin-left: 20% !important;
+      
+      i {
+        margin-left: 70% !important;
+      }
+    }
   }
 }
