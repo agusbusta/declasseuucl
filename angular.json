@@ -35,22 +35,20 @@
               }
             ],
             "styles": [
-              {
-                "input": "src/theme.less",
-                "inject": true,
-                "bundleName": "theme",
-                "javascriptEnabled": true
-              },
+              "src/theme.less",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
+            "lessOptions": {
+              "javascriptEnabled": true
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            },
-            "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
             }
           },
           "configurations": {
