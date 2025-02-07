@@ -35,9 +35,14 @@
               }
             ],
             "styles": [
-              "src/theme.less",
+              {
+                "input": "src/theme.less",
+                "bundleName": "theme",
+                "inject": true
+              },
               "src/styles.scss"
             ],
+            "preserveSymlinks": true,
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
@@ -52,7 +57,11 @@
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            }
+            },
+            "webWorkerTsConfig": "tsconfig.worker.json",
+            "allowedCommonJsDependencies": [
+              "ng-zorro-antd"
+            ]
           },
           "configurations": {
             "production": {
