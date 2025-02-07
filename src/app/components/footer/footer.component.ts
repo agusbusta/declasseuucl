@@ -42,6 +42,6 @@ export class FooterComponent {
   }
 
   reportarFallas() {
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSf_Wh_APyVImj-XNEyyd_xJh1etnpMgc5lo0eD-GKQgjVLhXw/viewform', '_blank');
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSf_Wh_APyVImj-XNEyyd_xJh1etnpMgc5lo0eD-GKQqjVLhXw/viewform', '_blank');
   }
 }
