@@ -35,7 +35,12 @@
               }
             ],
             "styles": [
-              "src/theme.less",
+              {
+                "input": "src/theme.less",
+                "inject": true,
+                "bundleName": "theme",
+                "javascriptEnabled": true
+              },
               "src/styles.scss"
             ],
             "scripts": [],
@@ -45,8 +50,7 @@
               "entry": "server.ts"
             },
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"],
-              "javascriptEnabled": true
+              "includePaths": ["src/styles"]
             }
           },
           "configurations": {
