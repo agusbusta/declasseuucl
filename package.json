@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production --less-config=less.config.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Declass2024": "node dist/declass2024/server/server.mjs"
