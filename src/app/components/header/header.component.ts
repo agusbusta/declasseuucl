@@ -102,5 +102,9 @@ export class HeaderComponent {
   handleGuiaOk() {
     console.log('Guía de uso aceptada'); // Mensaje de confirmación en la consola
   }
+
+  reportarFallas() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSf_Wh_APyVImj-XNEyyd_xJh1etnpMgc5lo0eD-GKQqjVLhXw/viewform', '_blank');
+  }
 }
 

@@ -111,6 +111,7 @@
         align-items: center;
         padding: 10px 30px;
         gap: 30px;
+        margin-bottom: 15px;
 
         @media (max-width: 768px) {
           flex-wrap: wrap;
@@ -526,5 +527,88 @@ month-table .ant-picker-content {
         margin-left: 70% !important;
       }
     }
+  }
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 2%;
+
+  .right-actions {
+    display: flex;
+    gap: 20px;
+  }
+
+  .clear-search,
+  .open-guide,
+  .report-issues {
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.bottom-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  margin-top: 10px;
+  margin-right: 48.5%;
+
+
+  .left-action {
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    
+    i {
+      font-size: 20px;
+      margin-right: 8px;
+    }
+  }
+
+  .right-actions {
+    display: flex;
+    gap: 20px;
+
+    .action-item {
+      display: flex;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      
+      i {
+        font-size: 20px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+
+    .left-action {
+      margin-left: -57%;
+    }
+    
+
+    .right-actions {
+      width: 100%;
+      justify-content: space-around;
+      margin-left: 247%;
+      margin-top: -13%;
+    }
+    
   }
 }

@@ -40,4 +40,8 @@ export class FooterComponent {
     a.click();
     this.renderer.removeChild(document.body, a);
   }
+
+  reportarFallas() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSf_Wh_APyVImj-XNEyyd_xJh1etnpMgc5lo0eD-GKQgjVLhXw/viewform', '_blank');
+  }
 }

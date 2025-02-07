@@ -49,13 +49,21 @@
         >
         </nz-date-picker>
       </div>
-      <div (click)="navigateToHome()" style="cursor: pointer; color: white; margin-left: 2%;" class="clear-search">
-        <i class="fa fa-trash-o" style="font-size:20px;margin-right: 4px;"></i>
-        Limpiar búsqueda
-      </div>
-      <div (click)="openGuiaModal()" style="cursor: pointer; color: white; margin-left: 38.3%; margin-top: -23px;" class="open-guide">
-        <i class="fa fa-info-circle" style="font-size:20px;margin-left: 44px;"></i>
-        Guía de uso
+      <div class="bottom-actions">
+        <div class="left-action">
+          <i class="fa fa-trash-o"></i>
+          <span (click)="navigateToHome()">Limpiar búsqueda</span>
+        </div>
+        <div class="right-actions">
+          <div class="action-item">
+            <i class="fa fa-info-circle"></i>
+            <span (click)="openGuiaModal()">Guía de uso</span>
+          </div>
+          <div class="action-item">
+            <i class="fa fa-exclamation-circle"></i>
+            <span (click)="reportarFallas()">Reportar fallas</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
