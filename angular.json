@@ -42,26 +42,18 @@
               },
               "src/styles.scss"
             ],
-            "preserveSymlinks": true,
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
-            "buildOptimizer": true,
-            "optimization": true,
-            "vendorChunk": true,
-            "extractLicenses": true,
-            "sourceMap": false,
-            "namedChunks": true,
+            "allowedCommonJsDependencies": [
+              "ng-zorro-antd"
+            ],
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            },
-            "webWorkerTsConfig": "tsconfig.worker.json",
-            "allowedCommonJsDependencies": [
-              "ng-zorro-antd"
-            ]
+            }
           },
           "configurations": {
             "production": {
@@ -90,7 +82,6 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "proxyConfig": "proxy.conf.json",
             "buildTarget": "Declass2024:build"
           },
           "configurations": {
