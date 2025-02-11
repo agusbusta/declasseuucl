@@ -564,7 +564,6 @@ month-table .ant-picker-content {
   margin-top: 10px;
   margin-right: 48.5%;
 
-
   .left-action {
     display: flex;
     align-items: center;
@@ -579,7 +578,9 @@ month-table .ant-picker-content {
 
   .right-actions {
     display: flex;
+    flex-direction: row;
     gap: 20px;
+    align-items: center;
 
     .action-item {
       display: flex;
@@ -595,20 +596,26 @@ month-table .ant-picker-content {
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-right: 0;
 
     .left-action {
-      margin-left: -57%;
+      margin-left: 0;
+      margin-top: -40px;
     }
-    
 
     .right-actions {
-      width: 100%;
-      justify-content: space-around;
-      margin-left: 247%;
-      margin-top: -13%;
+      flex-direction: column;
+      gap: 15px;
+      margin-right: 0;
+      align-items: flex-end;
+      
+      .action-item {
+        text-align: right;
+      }
     }
-    
   }
 }
+
